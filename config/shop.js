@@ -66,5 +66,5 @@ const SHOP = {
   //   "emerald-spa"      — Forest green + champagne (premium spa feel)
   //   "midnight-gold"    — Dark charcoal + bold gold (modern luxury)
   //   "blush-rose"       — Soft pink + rose gold (feminine boutique)
-  theme: "blush-rose",
+  theme: "emerald-spa",
 };
