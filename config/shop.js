@@ -8,8 +8,8 @@ const SHOP = {
   tagline: "Premium Unisex Salon — Look Good, Feel Great",
   logo:    "images/logo.png",   // "" to show text name only
 
-  phone:     "+91 98765 43210",
-  whatsapp:  "919876543210",    // digits only — country code + number, no spaces or +
+  phone:     "+91 916277 7063",
+  whatsapp:  "919162777063",    // digits only — country code + number, no spaces or +
   email:     "hello@glamourstudio.in",
   website:   "https://glamourstudio.in",  // used in QR code & WhatsApp message
 
@@ -66,5 +66,5 @@ const SHOP = {
   //   "emerald-spa"      — Forest green + champagne (premium spa feel)
   //   "midnight-gold"    — Dark charcoal + bold gold (modern luxury)
   //   "blush-rose"       — Soft pink + rose gold (feminine boutique)
-  theme: "luxury-burgundy",
+  theme: "blush-rose",
 };
