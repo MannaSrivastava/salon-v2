@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Premium unisex salon — Men, Women & Kids services. Book instantly via WhatsApp.">
+  <meta name="theme-color" content="#6b1e3b">
+  <meta property="og:title"       content="Glamour Studio — Unisex Salon">
+  <meta property="og:description" content="Book your appointment via WhatsApp. Men · Women · Kids.">
+  <meta property="og:type"        content="website">
+  <title>Glamour Studio — Unisex Salon</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- QRCode.js — tiny, no dependencies -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <!-- Config (data layer — edit these files only) -->
+  <script src="config/shop.js"></script>
+  <script src="config/services.js"></script>
+  <script src="config/creator.js"></script>
+</head>
+<body>
+
+<!-- ══ LOADER ══════════════════════════════════════════════════ -->
+<div id="loader" aria-hidden="true">
+  <div class="loader-inner">
+    <div class="loader-spinner"></div>
+    <p>Loading…</p>
+  </div>
+</div>
+
+<!-- ══ HERO ════════════════════════════════════════════════════ -->
+<header id="hero">
+  <div class="hero-inner" id="hero-inner"></div>
+  <div class="hero-divider"></div>
+</header>
+
+<!-- ══ STICKY CATEGORY TABS ════════════════════════════════════ -->
+<nav id="cat-nav" aria-label="Service Categories">
+  <div class="cat-nav-inner" id="cat-nav-inner"></div>
+</nav>
+
+<!-- ══ SERVICES ════════════════════════════════════════════════ -->
+<section id="services-section" class="section">
+  <div class="section-inner">
+    <div class="section-heading">
+      <h2>Our Services</h2>
+      <p>Tap any service to add it to your booking</p>
+    </div>
+
+    <!-- ── Cart: appears above booking when items are added ── -->
+    <div id="cart-section" role="region" aria-label="Selected Services">
+      <div class="cart-header">
+        <h3>🛒 Your Selected Services
+          <span class="cart-item-count" id="cart-count">0</span>
+        </h3>
+      </div>
+      <div class="cart-body" id="cart-list"></div>
+      <div class="cart-total-bar">
+        <div class="cart-total-left">
+          <div>Estimated Total</div>
+          <div class="cart-total-note" id="cart-total-note">Select services to begin</div>
+        </div>
+        <div class="cart-total-amount" id="cart-total-amount">₹0</div>
+      </div>
+    </div>
+
+    <!-- ── Service category panels ── -->
+    <div id="services-container"></div>
+
+  </div>
+</section>
+
+<!-- ══ BOOKING FORM ═════════════════════════════════════════════ -->
+<section id="booking-section">
+  <div class="section-inner" style="max-width:700px">
+    <div class="booking-box">
+      <div class="booking-header">
+        <span style="font-size:1.6rem">📅</span>
+        <div>
+          <h2>Book Your Appointment</h2>
+          <p>Fill your details — dates & slots are set per service above</p>
+        </div>
+      </div>
+      <div class="booking-body">
+        <div id="booking-form-inner"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ GALLERY ══════════════════════════════════════════════════ -->
+<section id="gallery-section">
+  <div class="section-heading">
+    <h2>Our Gallery</h2>
+    <p>A glimpse inside our salon</p>
+  </div>
+  <div class="gallery-grid" id="gallery-grid"></div>
+</section>
+
+<!-- ══ QR CODE ══════════════════════════════════════════════════ -->
+<section id="qr-section">
+  <div class="section-heading">
+    <h2>Share Our Salon</h2>
+    <p>Scan with any phone camera to open the website</p>
+  </div>
+  <div class="qr-box">
+    <div id="qr-wrap"></div>
+    <div class="qr-label">📷 Scan to visit &amp; book</div>
+    <div class="qr-url"  id="qr-url"></div>
+  </div>
+</section>
+
+<!-- ══ LOCATION ═════════════════════════════════════════════════ -->
+<section id="location-section">
+  <div class="section-heading text-center">
+    <h2>Find Us</h2>
+    <p>Come visit us or request a home service</p>
+  </div>
+  <div class="location-grid">
+    <div class="address-card">
+      <h3>📍 Address &amp; Hours</h3>
+      <div id="address-content"></div>
+    </div>
+    <div class="map-wrap" id="map-wrap"></div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ═══════════════════════════════════════════════════ -->
+<footer>
+  <div id="footer-inner"></div>
+</footer>
+
+<!-- ══ CONFIRMATION MODAL ═══════════════════════════════════════ -->
+<div id="modal-overlay" role="dialog" aria-modal="true" aria-label="Booking Confirmation">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>✅ Confirm Your Booking</h3>
+      <p>Review &amp; edit details before sending to WhatsApp</p>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<!-- ══ GALLERY LIGHTBOX ══════════════════════════════════════════ -->
+<div id="lightbox" onclick="if(event.target===this)closeLightbox()">
+  <img id="lightbox-img" src="" alt="Gallery image">
+  <button id="lightbox-close" onclick="closeLightbox()" aria-label="Close">✕</button>
+</div>
+
+<!-- ══ TOAST ════════════════════════════════════════════════════ -->
+<div id="toast" role="status" aria-live="polite"></div>
+
+<!-- ══ SCROLL TOP ═══════════════════════════════════════════════ -->
+<button id="scroll-top" aria-label="Back to top">▲</button>
+
+<!-- ══ APP ══════════════════════════════════════════════════════ -->
+<script src="js/app.js"></script>
+
+</body>
+</html>
