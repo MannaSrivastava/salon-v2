@@ -11,4 +11,5 @@ const CREATOR = {
   contact:     "hello@webcraft.studio",
   phone:       "+91 99999 00000",
   version:     "v2.0",
+  instagram: "https://instagram.com/glamourstudio",
 };
