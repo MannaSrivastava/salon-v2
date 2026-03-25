@@ -10,6 +10,6 @@ const CREATOR = {
   tagline:     "Crafted with ❤️ for local businesses",
   contact:     "hello@webcraft.studio",
   phone:       "+91 99999 00000",
-  version:     "v2.0",
   instagram: "https://instagram.com/glamourstudio",
+  version:     "v2.0",
 };
